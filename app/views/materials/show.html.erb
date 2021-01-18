@@ -1,0 +1,39 @@
+<% content_for @title=@material.title %>
+
+<div class="h-screen w-full flex overflow-hidden select-none">
+<%= render 'layouts/dashboard/sidebar' %>
+<%= link_to 'Back', levels_path %>
+<main class="my-1 pt-2 pb-2 px-10 flex-1 bg-gray-200 dark:bg-black rounded-l-lg
+		transition duration-500 ease-in-out overflow-y-auto">
+
+
+<!-- material title/!-->
+<div class="container">
+  <h1 class="text-center font-semibold">
+    Special <%= @material.title %>
+  </h1>
+</div>
+
+ <hr />
+<div class="container">
+  <div class="row mt-1">
+    <div class="col-12 col-md-2 offset-md-1 col-lg-2">
+    <%= render "shared/courses/sidebar" %>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-6">
+      <!-- feed main/!-->
+      <%= render "shared/courses/feed" %>
+      <!-- Home feed -onglet Msg -->
+    <% content_for @title= @material.title %>
+    </div>
+    <div class="col-12 col-md-2 col-lg-2">
+      <%= render "shared/courses/better" %>
+    </div>
+  </div>
+</div>
+
+</main>
+</div>
+
+
