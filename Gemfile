@@ -52,7 +52,7 @@ gem 'jquery-rails'
 #gem 'jquery-ui-rails'
 
 ################  URLS ################
-#gem 'friendly_id'
+gem 'friendly_id'
 
 
 ####################    MEMBERSHIP ######################
