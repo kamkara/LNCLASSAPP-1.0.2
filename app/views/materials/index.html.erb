@@ -1,6 +1,6 @@
 <div class="container">
 <div class="h-screen w-full flex overflow-hidden select-none">
-<%= render 'layouts/dashboard/sidebar' %>
+
 
 <main class="my-1 pt-2 pb-2 px-10 flex-1 bg-gray-200 dark:bg-black rounded-l-lg
 		transition duration-500 ease-in-out overflow-y-auto">
@@ -20,14 +20,14 @@
   </thead>
 
   <tbody>
-    <% @levels.each do |level| %>
+    <% @materials.each do |material| %>
       <tr>
-        <td><%= level.title %></td>
-        <td><%= level.slug %></td>
-        <td><%= level.user_id %></td>
-        <td><%= link_to 'Show', level %></td>
-        <td><%= link_to 'Edit', edit_level_path(level) %></td>
-        <td><%= link_to 'Destroy', level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= material.title %></td>
+        <td><%= material.slug %></td>
+        <td><%= material.user_id %></td>
+        <td><%= link_to 'Show', material %></td>
+        <td><%= link_to 'Edit', edit_material_path(material) %></td>
+        <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -35,7 +35,7 @@
 
 <br>
 
-<%= link_to 'New Level', new_level_path, class:"font-bold inline-flex justify-center py-2 px-4 border border-transparent 
+<%= link_to 'New Material', new_material_path, class:"font-bold inline-flex justify-center py-2 px-4 border border-transparent 
   shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600
  hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
   focus:ring-indigo-500" %>
