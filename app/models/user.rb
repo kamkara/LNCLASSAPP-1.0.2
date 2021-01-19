@@ -16,10 +16,12 @@ def roles
   if self.role == "student"
     ########### role default value= STUDENT  ######
     validates :email, :matricule, uniqueness: true
-  elsif self.role == "teacher"
+  elsif self.role == "teacher" 
     validates :email, uniqueness: true
   elsif self.role == "city manager"
-
+    validates :email, uniqueness: true
+  elsif self.role == "team"
+    validates :email, uniqueness: true
   end
   
 end
