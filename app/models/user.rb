@@ -12,9 +12,19 @@ class User < ApplicationRecord
   #has_many :exercices
 
   ################  VALIDATIONS  ###########################
+def roles
+  if self.role == "student"
+    ########### role default value= STUDENT  ######
+    validates :email, :matricule, uniqueness: true
+  elsif self.role == "teacher"
+    validates :email, uniqueness: true
+  elsif self.role == "city manager"
 
+  end
+  
+end
   ########### UNIQUENESS  ######
-    validates :matricule, :email, uniqueness: true
+    #validates :email, :matricule, uniqueness: true
 
   ######### PRESENTES && FORMAT  ######
     validates :phone_contact,
@@ -27,7 +37,9 @@ class User < ApplicationRecord
               format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/ }
 
     validates :phone_contact, :whatsapp_contact,
-              length: { in: 8..12 }, uniqueness: true
+              length: { in: 8..12 },
+              numericality: { only_integer: true },
+               uniqueness: true
 
 
 ################ NOT IMPLENETED  ###########################
@@ -48,11 +60,28 @@ def full_name
   self.full_name = "#{self.first_name} #{self.last_name}"
 end
 
-def user_slug
+
+############ SLUG ###########
+def slug
   self.slug = self.full_name
 end
 
+  extend FriendlyId
+    friendly_id :slug, use: :slugged
 
+  def should_generate_new_friendly_id?
+    slug_changed?
+  end
+################  BEFORE ACTIONS  ###########################
+#Delete whitespaces before and after fields, DownCase and capitalize
+before_save do
+  self.phone_contact      = phone_contact.strip.squeeze(" ")
+  self.whatsapp_contact   = whatsapp_contact.strip.squeeze(" ")
+  self.first_name         = first_name.strip.squeeze(" ").downcase.capitalize
+  self.last_name          = last_name.strip.squeeze(" ").downcase.capitalize
+  self.city               = city.strip.squeeze(" ").downcase.capitalize
+  self.school_name        = school_name.strip.squeeze(" ").downcase.capitalize
+end
 
 
 ################  CONSTANTE   ###########################
