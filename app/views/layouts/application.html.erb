@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
   <head>
-    <title>LNCLASSAPPS</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_pack_tag    'application' %>
-    <%= javascript_pack_tag 'application' %>
+  <title><%= title %></title>
+   <%= render "layouts/shared/headers" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-gray-200">
   
     <%= yield %>
+    <%= render "layouts/notices/noticed" %>
   </body>
 </html>
