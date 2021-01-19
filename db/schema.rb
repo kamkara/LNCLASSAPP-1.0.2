@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_01_18_223833) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 2021_01_18_223833) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_levels_on_user_id"
   end
+
 
   create_table "materials", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title"
@@ -82,4 +84,5 @@ ActiveRecord::Schema.define(version: 2021_01_18_223833) do
 
   add_foreign_key "levels", "users"
   add_foreign_key "materials", "users"
+
 end

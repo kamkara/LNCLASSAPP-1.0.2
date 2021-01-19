@@ -1,0 +1,30 @@
+
+<div class="h-screen w-full flex overflow-hidden select-none">
+
+
+<main class="my-1 pt-2 pb-2 px-10 flex-1 bg-gray-200 dark:bg-black rounded-l-lg
+		transition duration-500 ease-in-out overflow-y-auto">
+<br>
+ <br>
+ <br>
+ <br><p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @level.title %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @level.slug %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @level.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_level_path(@level), class:"bg-red-200" %> |
+<%= link_to 'Back', levels_path,  class:"bg-purple-200"%> | <%= link_to 'New', new_level_path,  class:"bg-blue-200"%> 
+</main>
+</div>

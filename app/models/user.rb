@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :levels
   #has_many :exercices
 
+
 end
