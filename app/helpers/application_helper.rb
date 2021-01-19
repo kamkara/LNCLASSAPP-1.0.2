@@ -7,9 +7,7 @@ module ApplicationHelper
         " #{@title} - #{base_title}"
         end
     end
-
-  #User sign in ou Sign up Form anywhere
-
+#Sign in and up anywhere on app
   def resource_name
     :user
   end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'login/student'
+  get 'login/teacher'
   resources :materials
   resources :levels
 

@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :timeoutable,  and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, authentication_keys: [:login]
+         :recoverable, :rememberable, :validatable,:trackable, authentication_keys: [:login]
 
   ##################  RELATIONS  ###################
 
@@ -17,7 +17,7 @@ class User < ApplicationRecord
     validates :matricule, :email, uniqueness: true
 
   ######### PRESENTES && FORMAT  ######
-    validates :contact_phone,
+    validates :phone_contact,
               :city, :school_name,
               :email, :city, presence: true
 
@@ -26,7 +26,7 @@ class User < ApplicationRecord
               length: { maximum: 30 },
               format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/ }
 
-    validates :contact_phone, :contact_whatsapp,
+    validates :phone_contact, :whatsapp_contact,
               length: { in: 8..12 }, uniqueness: true
 
 
@@ -52,28 +52,7 @@ def user_slug
   self.slug = self.full_name
 end
 
-################  BEFORE ACTIONS  ###########################
-#Delete whitespaces before and after fields, DownCase and capitalize
-before_save do
-  self.contact_phone      = contact_phone.strip.squeeze(" ")
-  self.contact_whatsapp   = contact_whatsapp.strip.squeeze(" ")
-  self.first_name         = first_name.strip.squeeze(" ").downcase.capitalize
-  self.last_name          = last_name.strip.squeeze(" ").downcase.capitalize
-  self.city               = city.strip.squeeze(" ").downcase.capitalize
-  self.school_name        = school_name.strip.squeeze(" ").downcase.capitalize
-  self.full_name          = self.full_name.strip.squeezz(" ").downcase.capitalize
-  
-end
 
-################  SLUG   ###########################
-
-  #SLUG
-  extend FriendlyId
-    friendly_id :user_slug , use: :slugged
-
-  def should_generate_new_friendly_id?
-      user_slug_changed?
-  end
 
 
 ################  CONSTANTE   ###########################
@@ -88,13 +67,13 @@ ROLE        = ["student", "teacher", "Admin"]
   attr_writer :login
 
   def login
-    @login || self.contact_phone || self.email
+    @login || self.phone_contact || self.email
   end
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
       if login = conditions.delete(:login)
-        where(conditions.to_h).where(["lower(contact_phone) = :value OR lower(email) = :value", { :value => login }]).first
+        where(conditions.to_h).where(["lower(phone_contact) = :value OR lower(email) = :value", { :value => login }]).first
       elsif conditions.has_key?(:contact_phone) || conditions.has_key?(:email)
         where(conditions.to_h).first
       end
