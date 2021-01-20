@@ -1,0 +1,25 @@
+<%= form_with(model: level, local: true) do |form| %>
+  <% if level.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(level.errors.count, "error") %> prohibited this level from being saved:</h2>
+
+      <ul>
+        <% level.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field my-2">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="actions mt-2">
+    <%= form.submit "Add new Level", class:'inline-flex justify-center py-2 px-4 border border-transparent 
+  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600
+ hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
+  focus:ring-indigo-500' %>
+  </div>
+<% end %>
