@@ -3,8 +3,7 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_materials, only: [:index, :show, :new, :edit, :create]
   before_action :find_levels, only:    [:index, :show, :new, :edit, :create]
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_course, only:     [:show, :edit, :update, :destroy]
 
   # GET /courses
   # GET /courses.json
@@ -20,6 +19,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    #render layout: "dashboard"
   end
 
   # GET /courses/1/edit
@@ -29,10 +29,7 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(course_params)
-
-    respond_to do |format|
-      @course        = current_user.courses.build(course_params)
+    @course        = current_user.courses.build(course_params)
     @course.author  = current_user.full_name
     @course.memo    = current_user.memo
 

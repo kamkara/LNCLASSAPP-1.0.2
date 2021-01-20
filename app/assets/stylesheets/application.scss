@@ -13,10 +13,11 @@
 
  */
 
+ //= require actiontext
  
 @import "bootstrap";
 @import "rails_bootstrap_forms";
-@import  "rich_text/actiontext";
+@import  "actiontext";
 @import "trix/dist/trix";
 
 $fa-font-path: '@fortawesome/fontawesome-free/webfonts';

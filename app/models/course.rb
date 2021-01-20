@@ -18,7 +18,7 @@ class Course < ApplicationRecord
              presence: true
   
   ################## VALIDATES  ###############
-  validates :content, length: {minimum:100}
+  validates :content, length: { minimum:100 }
   
 
   ################## SLUG ###############
