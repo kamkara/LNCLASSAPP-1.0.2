@@ -18,4 +18,13 @@ require("channels")
 
 import "../css/application.css"
 
+// FONT AWESOME
 import "@fortawesome/fontawesome-free/js/all";
+
+// RICH_TEXT
+require("trix")
+require("@rails/actiontext")
+import "../rich_text/trix-editor-overrides"
+
+//ANALYTICS
+import "../analytics/google_analytics"

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get 'login/student'
   get 'login/teacher'
+  get 'dashboard/index'
+  resources :courses
   resources :materials
   resources :levels
 
