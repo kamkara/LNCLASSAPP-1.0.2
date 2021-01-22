@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
+  layout "dashboard"
   
   before_action :authenticate_user!
-  layout "dashboard"
   before_action :find_materials
   before_action :find_levels
 
