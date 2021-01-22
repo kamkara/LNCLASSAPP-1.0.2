@@ -1,4 +1,10 @@
-<div class="container">
-    <%= render "dashboard/shared/sidebar" %>
-    <%= render "dashboard/shared/contents" %>
+<%= content_for @title="Votre Espace" %>
+<!-- component -->
+<div class="h-screen w-screen flex overflow-hidden select-none">
+    <!-- component -->
+    <%= render "layouts/dashboard/sidebar" %>
+    
+     <%= render 'dashboard/shared/main' %>
+    
+     <%= render 'dashboard/shared/aside' %>
 </div>

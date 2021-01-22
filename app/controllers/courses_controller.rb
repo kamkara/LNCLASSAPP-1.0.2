@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  
+  layout "dashboard", only: [:new, :create, :update]
   before_action :authenticate_user!
   before_action :find_materials, only: [:index, :show, :new, :edit, :create]
   before_action :find_levels, only:    [:index, :show, :new, :edit, :create]
@@ -37,9 +37,11 @@ class CoursesController < ApplicationController
       if @course.save
         format.html { redirect_to @course, notice: 'La léçon est bien créée et publiée.' }
         format.json { render :show, status: :created, location: @course }
+        #render layout: "dashboard"
       else
         format.html { render :new }
         format.json { render json: @course.errors, status: :unprocessable_entity }
+        #render layout: "dashboard"
       end
     end
   end
@@ -51,9 +53,11 @@ class CoursesController < ApplicationController
       if @course.update(course_params)
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
+        #render layout: "dashboard"
       else
         format.html { render :edit }
         format.json { render json: @course.errors, status: :unprocessable_entity }
+        #render layout: "dashboard"
       end
     end
   end
