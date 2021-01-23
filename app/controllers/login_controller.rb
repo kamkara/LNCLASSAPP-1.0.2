@@ -1,10 +1,15 @@
 class LoginController < ApplicationController
   before_action :find_materials
   before_action :find_levels
+
+  
   def student
   end
 
   def teacher
+  end
+  def team
+    
   end
   private
   
