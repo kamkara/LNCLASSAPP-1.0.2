@@ -1,0 +1,16 @@
+<!-- edit option-->
+
+<% if current_user.id == @help.user_id %>
+  <div class="d-flex justify-content-end">
+    <%= link_to  @help, method: :delete, data: { confirm: 'voulez-vous vraiment supprimé?' } do %>
+      <i class="fas fa-trash"></i> Supprimé
+    <% end %>
+  <span class="mx-2">
+    <%= link_to  edit_help_path(@help) do %>
+      <i class="fas fa-chalkboard-teacher"></i> Editer le résumé
+    <% end %>
+  </span>
+  </div>
+   
+<% end %>
+

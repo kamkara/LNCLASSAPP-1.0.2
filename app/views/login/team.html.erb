@@ -23,10 +23,17 @@
                     </div>
                 </div>
                 
+                <!-- user email-->
+                <%= f.email_field :email, id:"studentEmail", hide_label: true, 
+                class:"form-control input-lg ",placeholder:"Adresse email:" %>
             
                 <!-- phone contact-->
                 <%= f.phone_field :phone_contact, class:"form-control  input-lg ",
                     placeholder:"N° téléphone :", hide_label: true, id:"studentContact" %>
+                <!-- phone contact-->
+                <%= f.phone_field :whatsapp_contact, class:"form-control  input-lg my-1 ",
+                placeholder:"N° téléphone WhatsApp :", hide_label: true , 
+                help:"Ajouter votre numéro whatsapp, pas Obligatoire!" %>
 
                     <!-- password section-->
                 <%= f.password_field :password, hide_label: true, class:"form-control  input-lg ", 
@@ -39,20 +46,10 @@
                 placeholder:"Confirmez votre mot de passe :", 
                 help:"retaper le mot de passe" %>
 
-                <!-- user email-->
-                <%= f.email_field :email, id:"studentEmail", hide_label: true, 
-                class:"form-control input-lg ",placeholder:"Adresse email:" %>
-                
-                <!-- phone contact-->
-                <%= f.phone_field :whatsapp_contact, class:"form-control  input-lg my-1 ",
-                placeholder:"N° téléphone WhatsApp :", hide_label: true , 
-                help:"Ajouter votre numéro whatsapp, pas Obligatoire!" %>
-
                 <%= f.hidden_field :role, value:"team" %>
-                <!-- Corporate Msg-->
-                <span class="help-block">
-                    En cliquant sur Créer mon compte, votre compte sera créé et vous aurez une semaine offerte.
-                </span>
+                <%= f.hidden_field :school_name, value:"QH Aplatform.co" %>
+                <%= f.hidden_field :city, value:"QH" %>
+                
                 <div class="actions">
                     <%= f.submit "Créer mon compte", class:"btn btn-lg btn-primary btn-block signup-btn" %>
                 </div>

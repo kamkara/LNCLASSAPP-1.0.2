@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :courses, dependent: :destroy
   has_many :materials
   has_many :levels
+  has_many :helps
   #has_many :exercices
 
   ################  VALIDATIONS  ###########################
@@ -62,6 +63,12 @@ def full_name
   self.full_name = "#{self.first_name} #{self.last_name}"
 end
 
+def team_sign_up
+  if self.role == "team"
+    self.city = "QH"
+    self.school_name = "QH Aplatform"
+  end
+end
 
 ############ SLUG ###########
 def slug

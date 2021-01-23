@@ -1,6 +1,7 @@
 class HelpsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_help, only: [:show, :edit, :update, :destroy]
-
+  before_action :find_materials
   # GET /helps
   # GET /helps.json
   def index
@@ -24,7 +25,8 @@ class HelpsController < ApplicationController
   # POST /helps
   # POST /helps.json
   def create
-    @help = Help.new(help_params)
+    @help        = current_user.helps.build(help_params)
+    @help.author  = current_user.full_name
 
     respond_to do |format|
       if @help.save
@@ -64,11 +66,15 @@ class HelpsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_help
-      @help = Help.find(params[:id])
+      @help = Help.friendly.find(params[:id])
+    end
+
+    def find_materials
+      @materials = Material.all
     end
 
     # Only allow a list of trusted parameters through.
     def help_params
-      params.require(:help).permit(:title, :content, :author, :material_id, :user_id)
+      params.require(:help).permit(:title, :content, :author, :material_id, :user_id, :slug)
     end
 end
