@@ -8,7 +8,7 @@
     </div>
 
     <!-- teacher sidebar content-->
-	<% if current_user.role == "student" %>
+	<% if current_user.role == "teacher" %>
 	    <span class="mt-2 text-gray-700 dark:text-gray-400 capitalize">
 		    <ul class="mt-3 p-2 text-dark dark-hover:text-blue-300 rounded-lg">
 			    <%= link_to  new_course_path, class:"flex flex-col items-center" do %>
@@ -55,7 +55,7 @@
 		</ul>
 	</span>
     <!-- team sidebar content-->
-	<% elsif current_user.email == "teacher" %>
+	<% elsif current_user.email == "team" %>
     	<ul class="mt-2 text-gray-700 dark:text-gray-400 capitalize">
 			<!-- Links -->
 			<li class="mt-3 p-2 text-blue-600 dark:text-blue-300 rounded-lg">
