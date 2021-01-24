@@ -26,7 +26,7 @@ class HelpsController < ApplicationController
   # POST /helps.json
   def create
     @help        = current_user.helps.build(help_params)
-    @help.author  = current_user.full_name
+    @help.author = current_user.full_name
 
     respond_to do |format|
       if @help.save

@@ -67,6 +67,9 @@ window.addEventListener("trix-file-accept", function(event) {
 })
 
 
-
+//RICH TEXT
+import "../rich_text/trix-editor-overrides"
 //ANALYTICS
 import "../analytics/google_analytics"
+//VALIDATES FORM SIGN UP ANS SIGN IN
+import "../validates/formValidates"
