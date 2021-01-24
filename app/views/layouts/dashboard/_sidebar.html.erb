@@ -55,7 +55,7 @@
 		</ul>
 	</span>
     <!-- team sidebar content-->
-	<% elsif current_user.email == "team" %>
+	<% elsif current_user.role == "team" %>
     	<ul class="mt-2 text-gray-700 dark:text-gray-400 capitalize">
 			<!-- Links -->
 			<li class="mt-3 p-2 text-blue-600 dark:text-blue-300 rounded-lg">
@@ -93,24 +93,45 @@
 			</li>
 
 			<li class="mt-3 p-2 text-black rounded-lg">
-        <%= link_to new_material_path, class:"flex flex-col items-center" do %>
-            <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
-              <path
-                d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0
-                001 1h12a1 1 0 001-1v-3.5l4 4v-11l-4 4z"></path>
-            </svg>
-            <span class="text-xs mt-2">New Materials</span>
-        <% end %>
+				<%= link_to new_material_path, class:"flex flex-col items-center" do %>
+					<svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+					<path
+						d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0
+						001 1h12a1 1 0 001-1v-3.5l4 4v-11l-4 4z"></path>
+					</svg>
+					<span class="text-xs mt-2">New Materials</span>
+				<% end %>
 			</li>
 			<li class="mt-3 p-2 text-black rounded-lg">
-        <%= link_to materials_path, class:"flex flex-col items-center" do %>
-            <svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
-              <path
-                d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0
-                001 1h12a1 1 0 001-1v-3.5l4 4v-11l-4 4z"></path>
-            </svg>
-            <span class="text-xs mt-2">List Materials</span>
-        <% end %>
+				<%= link_to materials_path, class:"flex flex-col items-center" do %>
+					<svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+					<path
+						d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0
+						001 1h12a1 1 0 001-1v-3.5l4 4v-11l-4 4z"></path>
+					</svg>
+					<span class="text-xs mt-2">List Materials</span>
+				<% end %>
+			</li>
+		</ul>
+		<li class="mt-3 p-2 text-black rounded-lg">
+				<%= link_to new_help_path, class:"flex flex-col items-center" do %>
+					<svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+					<path
+						d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0
+						001 1h12a1 1 0 001-1v-3.5l4 4v-11l-4 4z"></path>
+					</svg>
+					<span class="text-xs mt-2">New Help topic</span>
+				<% end %>
+			</li>
+			<li class="mt-3 p-2 text-black rounded-lg">
+				<%= link_to helps_path, class:"flex flex-col items-center" do %>
+					<svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+					<path
+						d="M17 10.5V7a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0
+						001 1h12a1 1 0 001-1v-3.5l4 4v-11l-4 4z"></path>
+					</svg>
+					<span class="text-xs mt-2">List helps topics</span>
+				<% end %>
 			</li>
 		</ul>
 

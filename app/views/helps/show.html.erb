@@ -1,0 +1,35 @@
+
+<% content_for @title = @help.title %>
+
+<div class="container-sm">
+  <div class="row pt-16 ">
+    <div class="col-12 col-md-6 col-lg-6">
+
+      <!-- card course-->
+      <div class="card">
+        <!-- title!-->
+        <h1 class="text-xl leading-tight font-bold mt-2 mx-2">
+          <%= @help.title %>
+        </h1>
+
+         <!-- avatar data/!-->
+        <div class="flex items-cente mt-4 ml-6">
+          <img class="w-10 h-10 bg-gray-400 rounded-full">
+          <!-- Course meta data-->
+          <%= render "helps/shared/data_help" %>
+        </div>
+
+        <!--content/!-->
+        <div class="m-2">
+          <p class="mx-2" id="read_more">
+            <%= @help.content.to_s.html_safe %>
+          </p>
+          <hr>
+          <!-- Options-->
+          <%= render "helps/shared/options" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

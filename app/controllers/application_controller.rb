@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    
+
    #Redirect with locale after authentication failure 
    def set_locale
       I18n.locale = params[:locale]
@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
     root_path
   end
+
 end
