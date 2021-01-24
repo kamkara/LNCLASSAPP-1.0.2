@@ -18,7 +18,7 @@ class MaterialsController < ApplicationController
       @courses = Course.where('material_id = ? and level_id = ?',
                         @material.id, @current_user.level_id).order('created_at DESC')
 
-    elsif current_user.role == "teacher"
+    elsif current_user.role == "teacher" || current_user.role == "team"
       @courses   =Course.all.order('created_at DESC')
     end
   end
