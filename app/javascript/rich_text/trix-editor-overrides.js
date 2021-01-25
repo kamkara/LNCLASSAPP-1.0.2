@@ -37,6 +37,6 @@ window.addEventListener("trix-file-accept", function(event) {
   if (event.file.size > maxFileSize) {
     event.preventDefault()
     alert("La taille du support autorisé est de 1MB!")
-  }
-})
+  };
+});
 
