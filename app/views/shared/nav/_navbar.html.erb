@@ -10,15 +10,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-
-                    <% if current_user.email=='kara@gmail.com' %>
-                        <li class="nav-item nav-item_feed active">
-                            <%= link_to root_path, class: "m-links nav-link active " do %>
-                                <i class="fa fa-home"></i> Admin
-                            <% end %>
-                        </li>
-                    <% end %>
-
                     <!-- Home onglet/!-->
                     <li class="nav-item nav-item_feed active">
                         <%= link_to root_path, class: "m-links nav-link active " do %>
@@ -34,12 +25,21 @@
                         <% end %>
                     </li>
                      <!-- create course by teacher/!-->
-
+                    
+                    <% if current_user.role == "teacher" %>
+                        <li class="nav-item nav-item_feed active">
+                            <%= link_to dashboard_index_path, class: "m-links nav-link active  " do %>
+                            <i class="fas fa-users"></i> TablesClass
+                            <% end %>
+                        </li>
+                    <% elsif current_user.role == "team" %>
                     <li class="nav-item nav-item_feed active">
-                        <%= link_to dashboard_index_path, class: "m-links nav-link active  " do %>
-                        <i class="fas fa-users"></i> TablesClass
-                        <% end %>
-                    </li>
+                            <%= link_to dashboard_index_path, class: "m-links nav-link active  " do %>
+                            <i class="fas fa-users"></i> Admistration
+                            <% end %>
+                        </li>
+                    <% end %>
+                    
 
                     <!-- Sign out /!-->
                     <li class="nav-item nav-item_feed active">

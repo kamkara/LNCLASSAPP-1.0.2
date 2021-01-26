@@ -1,8 +1,8 @@
 class CoursesController < ApplicationController
-  
+  #layout "dashboard", only: [:new, :create, :update]
   before_action :authenticate_user!
-  before_action :find_materials, only: [:index, :show, :new, :edit, :create]
-  before_action :find_levels, only:    [:index, :show, :new, :edit, :create]
+  before_action :find_materials, only: [:index, :show, :new, :edit, :create, :update]
+  before_action :find_levels, only:    [:index, :show, :new, :edit, :create, :level]
   before_action :set_course, only:     [:show, :edit, :update, :destroy]
 
   # GET /courses
@@ -14,12 +14,13 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+   
   end
 
   # GET /courses/new
   def new
     @course = Course.new
-    #render layout: "dashboard"
+    render layout: "dashboard"
   end
 
   # GET /courses/1/edit
@@ -37,9 +38,11 @@ class CoursesController < ApplicationController
       if @course.save
         format.html { redirect_to @course, notice: 'La léçon est bien créée et publiée.' }
         format.json { render :show, status: :created, location: @course }
+        
       else
         format.html { render :new }
         format.json { render json: @course.errors, status: :unprocessable_entity }
+        render layout: "dashboard"
       end
     end
   end
@@ -51,9 +54,11 @@ class CoursesController < ApplicationController
       if @course.update(course_params)
         format.html { redirect_to @course, notice: 'Course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
+        
       else
         format.html { render :edit }
         format.json { render json: @course.errors, status: :unprocessable_entity }
+        
       end
     end
   end

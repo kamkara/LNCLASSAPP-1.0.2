@@ -1,0 +1,60 @@
+
+<div class="container" id="wrap">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <span class="items-center">
+                <legend>Inscription</legend>
+                <h4 class="font-semibold mb-2">Inscrivez-vous gratuitement, C'est simple.</h4>
+            </span>
+
+            <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="row">
+                    <!-- User first and last name-->
+                    <div class="col-xs-6 col-md-6 my-1">
+                        <%= f.text_field :first_name,
+                        hide_label: true, class:"form-control input-lg",
+                        placeholder:"Nom :", autofocus: true %>
+                    </div>
+                    <div class="col-xs-6 col-md-6 my-1">
+                        <%= f.text_field :last_name,
+                        hide_label: true, class:"form-control  input-lg",
+                        placeholder:"Prénom :" %>
+                    </div>
+                </div>
+                
+                <!-- user email-->
+                <%= f.email_field :email, id:"studentEmail", hide_label: true, 
+                class:"form-control input-lg ",placeholder:"Adresse email:" %>
+            
+                <!-- phone contact-->
+                <%= f.phone_field :phone_contact, class:"form-control  input-lg ",
+                    placeholder:"N° téléphone :", hide_label: true, id:"studentContact" %>
+                <!-- phone contact-->
+                <%= f.phone_field :whatsapp_contact, class:"form-control  input-lg my-1 ",
+                placeholder:"N° téléphone WhatsApp :", hide_label: true , 
+                help:"Ajouter votre numéro whatsapp, pas Obligatoire!" %>
+
+                    <!-- password section-->
+                <%= f.password_field :password, hide_label: true, class:"form-control  input-lg ", 
+                help:"Un bon mot de passe doit avoir plus de 8 caractères",
+                placeholder:"Mot de passe :" %>
+
+                <!-- Passwword confirm -->
+                <%= f.password_field :password_confirmation, 
+                hide_label: true, class:"form-control md:input-lg lg:input-lg my-1 ",
+                placeholder:"Confirmez votre mot de passe :", 
+                help:"retaper le mot de passe" %>
+
+                <%= f.hidden_field :role, value:"team" %>
+                <%= f.hidden_field :school_name, value:"QH Aplatform.co" %>
+                <%= f.hidden_field :city, value:"QH" %>
+                
+                <div class="actions">
+                    <%= f.submit "Créer mon compte", class:"btn btn-lg btn-primary btn-block signup-btn" %>
+                </div>
+            <% end %>
+
+        </div>
+    </div>
+</div>

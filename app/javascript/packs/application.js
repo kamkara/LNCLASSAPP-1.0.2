@@ -7,6 +7,10 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+// RICH_TEXT
+require("trix")
+require("@rails/actiontext")
 //= require jquery
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -16,14 +20,21 @@ require("channels")
  const images = require.context('../images', true)
  const imagePath = (name) => images(name, true)
 
-import "../css/application.css"
+import "../css/application.css";
 
 // FONT AWESOME
 import "@fortawesome/fontawesome-free/js/all";
 
-// RICH_TEXT
-require("trix")
-require("@rails/actiontext")
+
+//RICH TEXT
+// import "../rich_text/trix-editor-overrides";
+
+//ANALYTICS
+// import "../analytics/google_analytics";
+
+//VALIDATES FORM SIGN UP ANS SIGN IN
+// import "../validates/formValidates";
+
 // app/javascript/trix-editor-overrides.js
 
 document.addEventListener('turbolinks:load', () => {
@@ -64,9 +75,4 @@ window.addEventListener("trix-file-accept", function(event) {
     event.preventDefault()
     alert("La taille du support autorisé est de 1MB!")
   }
-})
-
-
-
-//ANALYTICS
-import "../analytics/google_analytics"
+});
