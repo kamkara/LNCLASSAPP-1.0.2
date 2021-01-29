@@ -1,4 +1,9 @@
-class FormValidator {
+document.addEventListener('turbolinks:load', ()=> {
+/*
+validate field content before submit
+generate email dummies email for student: N°+ lnclass@lnclass.com
+*/
+ class FormValidator {
   constructor(form, fields) {
     this.form = form
     this.fields = fields
@@ -87,7 +92,8 @@ class FormValidator {
 }
 
 const form = document.querySelector('.form')
-const fields = ["username", "email", "password", "password_confirmation"]
+const fields = ["first_name","last_name", "matricule", "city", "school_name", "level_id", "email", "password", "password_confirmation"]
 
 const validator = new FormValidator(form, fields)
 validator.initialize()
+});

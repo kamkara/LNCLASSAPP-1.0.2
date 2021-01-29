@@ -9,15 +9,12 @@
 // <action-text-attachment> element we wrap around attachments. Otherwise,
 // images in galleries will be squished by the max-width: 33%; rule.
 
-//= require trix/dist/trix
-
 trix-editor {
     &.customized-min-height {
         min-height: 15em;
         height: auto;
     }
 }
-
 
 .trix-content {
   .attachment-gallery {
