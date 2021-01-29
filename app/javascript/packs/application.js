@@ -32,14 +32,12 @@ import "@fortawesome/fontawesome-free/js/all";
 //ANALYTICS
 // import "../analytics/google_analytics";
 
-//VALIDATES FORM SIGN UP ANS SIGN IN
-// import "../validates/formValidates";
+// VALIDATES
+import "../validates/sign_up_forms.js";
 
 // app/javascript/trix-editor-overrides.js
 
 document.addEventListener('turbolinks:load', () => {
-   
-
     //rich text editor
     document.addEventListener('click', () => {
         let element = event.target.closest('.text-content')
@@ -59,20 +57,20 @@ document.addEventListener('turbolinks:load', () => {
         element.classList.add('d-none')
         element.previousElementSibling.classList.remove('d-none')
     })
-})
+    
+    
+    window.addEventListener("trix-file-accept", function(event) {
+      let acceptedTypes = ['image/jpeg', 'image/png']
+      if (!acceptedTypes.includes(event.file.type)) {
+        event.preventDefault()
+        alert("Les images autorisée, sont les .png .Jpeg")
+      }
+      // maxfieSize
+    let maxFileSize = 1024 * 1024 // 1MB 
+    if (event.file.size > maxFileSize) {
+      event.preventDefault()
+      alert("La taille du support autorisé est de 1MB!")
+    }
+  })
 
-
-window.addEventListener("trix-file-accept", function(event) {
-  const acceptedTypes = ['image/jpeg', 'image/png']
-  if (!acceptedTypes.includes(event.file.type)) {
-    event.preventDefault()
-    alert("Les images autorisée, sont les .png .Jpeg")
-  }
-
-  //
-  const maxFileSize = 1024 * 1024 // 1MB 
-  if (event.file.size > maxFileSize) {
-    event.preventDefault()
-    alert("La taille du support autorisé est de 1MB!")
-  }
 });

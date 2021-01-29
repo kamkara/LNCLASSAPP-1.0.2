@@ -17,9 +17,10 @@
  
 @import "bootstrap";
 @import "rails_bootstrap_forms";
-@import  "actiontext";
+@import  "rich_text/actiontext";
 @import "trix/dist/trix";
 @import "fashMessage/fash_styles";
+@import "validates/forms";
 
 $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 @import '@fortawesome/fontawesome-free/scss/fontawesome';

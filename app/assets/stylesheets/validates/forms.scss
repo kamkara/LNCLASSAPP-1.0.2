@@ -1,14 +1,4 @@
-* {
-	box-sizing: border-box;
-}
 
-body {
-  background-color: blueviolet;  
-}
-
-.title {
-  margin-bottom: 2rem;
-}
 
 .hidden {
   display: none;
@@ -32,15 +22,7 @@ body {
   }
 }
 
-.container {
-  max-width: 460px;
-  margin: 3rem auto;
-  padding: 3rem;
-  border: 1px solid #ddd;
-  border-radius: .25rem;
-  background-color: white;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
+
 
 .label {
   font-weight: bold;
@@ -109,17 +91,3 @@ body {
   }
 }
 
-
-.promo {
-  color: white;
-  opacity: .75;
-  margin: 1rem auto;
-  max-width: 460px;
-  background: rgba(255, 255, 255, .2);
-  padding: 20px;
-  border-radius: .25rem;
-    
-  a {
-    color: white;
-  }
-}
