@@ -92,8 +92,9 @@ generate email dummies email for student: N°+ lnclass@lnclass.com
 }
 
 const form = document.querySelector('.form')
+
 const fields = ["first_name","last_name", "matricule", "city", "school_name", "level_id", "email", "password", "password_confirmation"]
 
 const validator = new FormValidator(form, fields)
-validator.initialize()
+validator.initialize();
 });
