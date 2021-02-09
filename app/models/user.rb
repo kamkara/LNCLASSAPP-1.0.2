@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :materials
   has_many :levels
   has_many :helps
+  has_one_attached :avatar
   #has_many :exercices
 
   ################  VALIDATIONS  ###########################
@@ -24,7 +25,6 @@ def roles
   elsif self.role == "team"
     validates :email, uniqueness: true
   end
-  
 end
   ########### UNIQUENESS  ######
     #validates :email, :matricule, uniqueness: true
