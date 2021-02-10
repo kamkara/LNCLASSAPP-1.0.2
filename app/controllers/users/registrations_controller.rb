@@ -16,8 +16,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
 
-    devise_parameter_sanitizer.permit :sign_up, keys: user_params
-    devise_parameter_sanitizer.permit :account_update, keys: user_params
+   # devise_parameter_sanitizer.permit :sign_up, keys: user_params
+   # devise_parameter_sanitizer.permit :account_update, keys: user_params
 
   end
 
@@ -33,9 +33,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:avatar)
-    end
+    
 end
 
 
