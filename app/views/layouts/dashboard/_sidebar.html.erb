@@ -1,14 +1,14 @@
 <nav class="w-24 flex flex-col bg-blue-500 hover:text-blue-500 ">
     <!-- Left side NavBar -->
     <div class="">
-    <!-- App Logo -->
-     <%= link_to root_path, class:"flex flex-col items-center" do %>
-        <span class="font-bold hover:no-underline ">LNCLASS</span>
-     <% end %>
+    	<!-- App Logo -->
+     	<%= link_to root_path, class:"flex flex-col items-center" do %>
+        	<span class="font-bold hover:no-underline ">LNCLASS</span>
+     	<% end %>
     </div>
 
     <!-- teacher sidebar content-->
-	<% if current_user.role == "teacher" || current_user.role == "team" %>
+	<% if current_user.role == "teacher" %>
 	    <span class="mt-2 text-gray-700 dark:text-gray-400 capitalize">
 		    <ul class="mt-3 p-2 text-dark dark-hover:text-blue-300 rounded-lg">
 			    <%= link_to  new_course_path, class:"flex items-center" do %>
@@ -49,6 +49,19 @@
 				<%= link_to  root_path ,class:" flex flex-col items-center" do %>
 					<span class="text-xs mt-2"> Tableau de Bord</span>
 				<% end %>
+			</li>
+			<li class="mt-3 p-2 text-dark dark-hover:text-blue-300 rounded-lg">
+			    <%= link_to  new_citytown_path, class:"flex flex-col items-center" do %>
+					<svg class="fill-current h-5 w-5" viewBox="0 0 24 24">
+						<path
+							d="M19 19H5V8h14m0-5h-1V1h-2v2H8V1H6v2H5a2 2 0 00-2
+							2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2m-2.47
+							8.06L15.47 10l-4.88 4.88-2.12-2.12-1.06 1.06L10.59
+							17l5.94-5.94z"></path>
+					</svg>
+					<span class="text-xs mt-2"> Add City</span>
+				<% end %>
+
 			</li>
             <li class="mt-3 p-2 text-dark dark-hover:text-blue-300 rounded-lg">
 			    <%= link_to  new_level_path, class:"flex flex-col items-center" do %>

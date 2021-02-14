@@ -1,0 +1,21 @@
+<div class="container mt-24">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Designation:</strong>
+    <%= @citytown.title %>
+  </p>
+
+  <p>
+    <strong>Url:</strong>
+    <%= @citytown.slug %>
+  </p>
+
+  <p>
+    <strong>Auteur:</strong>
+    <%= @citytown.user_id %>
+  </p>
+
+  <%= link_to 'Editer', edit_citytown_path(@citytown) %> |
+  <%= link_to 'Liste villes', citytowns_path %>
+</div>
