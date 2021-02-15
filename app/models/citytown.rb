@@ -1,6 +1,6 @@
 class Citytown < ApplicationRecord
   belongs_to :user
-  has_many :schools, class_name: "school", foreign_key: "reference_id"
+  has_many :schools
 
    ################## VALIDATES  ###############
   validates :title,:slug, presence: true,

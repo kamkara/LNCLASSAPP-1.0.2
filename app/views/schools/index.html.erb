@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Content</th>
+      <th>Sigle</th>
+      <th>Type</th>
       <th>Teacher</th>
       <th>Citytown</th>
       <th>User</th>
@@ -19,7 +20,8 @@
     <% @schools.each do |school| %>
       <tr>
         <td><%= school.title %></td>
-        <td><%= school.content %></td>
+        <td><%= school.sigle %></td>
+        <td><%= school.type %></td>
         <td><%= school.teacher_id %></td>
         <td><%= school.citytown_id %></td>
         <td><%= school.user_id %></td>

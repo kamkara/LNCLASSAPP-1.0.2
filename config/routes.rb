@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  resources :schools
   resources :citytowns do
     resources :schools, only: 'index'
   end
   
-  resources :schools
   resources :citytowns
   resources :courses
   resources :materials

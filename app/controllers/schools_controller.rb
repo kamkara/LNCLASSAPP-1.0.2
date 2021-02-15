@@ -1,16 +1,13 @@
 class SchoolsController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_school, only: [:show, :edit, :update, :destroy]
-
+  before_action :find_citytown
   # GET /schools
-  # GET /schools.json
   def index
     @schools = School.all
   end
 
   # GET /schools/1
-  # GET /schools/1.json
   def show
   end
 
@@ -24,43 +21,29 @@ class SchoolsController < ApplicationController
   end
 
   # POST /schools
-  # POST /schools.json
   def create
-    @school = curent_user.schools.build(school_params)
-
-    respond_to do |format|
-      if @school.save
-        format.html { redirect_to @school, notice: 'School was successfully created.' }
-        format.json { render :show, status: :created, location: @school }
-      else
-        format.html { render :new }
-        format.json { render json: @school.errors, status: :unprocessable_entity }
-      end
+    @school = @citytown.schools.build(school_params)
+    @school.user_id = current_user.id
+    if @school.save
+      redirect_to @school, notice: 'Etabl est maintenant crée et disponible.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /schools/1
-  # PATCH/PUT /schools/1.json
   def update
-    respond_to do |format|
-      if @school.update(school_params)
-        format.html { redirect_to @school, notice: 'School was successfully updated.' }
-        format.json { render :show, status: :ok, location: @school }
-      else
-        format.html { render :edit }
-        format.json { render json: @school.errors, status: :unprocessable_entity }
-      end
+    if @school.update(school_params)
+      redirect_to @school, notice: 'School was successfully updated.'
+    else
+      render :edit
     end
   end
 
   # DELETE /schools/1
-  # DELETE /schools/1.json
   def destroy
     @school.destroy
-    respond_to do |format|
-      format.html { redirect_to schools_url, notice: 'School was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to schools_url, notice: 'School was successfully destroyed.'
   end
 
   private
@@ -68,9 +51,12 @@ class SchoolsController < ApplicationController
     def set_school
       @school = School.find(params[:id])
     end
+    def find_citytown
+      @citytown = Citytown.friendly.find(find(params[:id]))
+    end
 
-    # Only allow a list of trusted parameters through.
+    # Only allow a trusted parameter "white list" through.
     def school_params
-      params.require(:school).permit(:title, :content, :teacher_id, :citytown_id, :user_id, :slug)
+      params.require(:school).permit(:title, :sigle, :type, :teacher_id, :citytown_id, :user_id, :slug)
     end
 end

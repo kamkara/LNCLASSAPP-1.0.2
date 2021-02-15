@@ -15,10 +15,11 @@ class SchoolsTest < ApplicationSystemTestCase
     click_on "New School"
 
     fill_in "Citytown", with: @school.citytown_id
-    fill_in "Content", with: @school.content
+    fill_in "Sigle", with: @school.sigle
     fill_in "Slug", with: @school.slug
     fill_in "Teacher", with: @school.teacher_id
     fill_in "Title", with: @school.title
+    fill_in "Type", with: @school.type
     fill_in "User", with: @school.user_id
     click_on "Create School"
 
@@ -31,10 +32,11 @@ class SchoolsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Citytown", with: @school.citytown_id
-    fill_in "Content", with: @school.content
+    fill_in "Sigle", with: @school.sigle
     fill_in "Slug", with: @school.slug
     fill_in "Teacher", with: @school.teacher_id
     fill_in "Title", with: @school.title
+    fill_in "Type", with: @school.type
     fill_in "User", with: @school.user_id
     click_on "Update School"
 

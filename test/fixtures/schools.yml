@@ -2,7 +2,8 @@
 
 one:
   title: MyString
-  content: MyString
+  sigle: MyString
+  type: 
   teacher_id: 
   citytown: one
   user: one
@@ -10,7 +11,8 @@ one:
 
 two:
   title: MyString
-  content: MyString
+  sigle: MyString
+  type: 
   teacher_id: 
   citytown: two
   user: two
