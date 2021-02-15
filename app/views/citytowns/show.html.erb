@@ -1,21 +1,56 @@
+<%= content_for @title=@citytown.title%>
+
 <div class="container mt-24">
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Designation:</strong>
-    <%= @citytown.title %>
-  </p>
+  <!--school list by city   -->
+  <!-- component -->
 
-  <p>
-    <strong>Url:</strong>
-    <%= @citytown.slug %>
-  </p>
+<p class="text-lg text-center font-bold m-5"> <%= @citytown.title %> Etablissement Actif.</p>
+<table class="rounded-t-lg mx-2 my-5 w-5/6 mx-auto bg-gray-800 text-gray-800">
 
-  <p>
-    <strong>Auteur:</strong>
-    <%= @citytown.user_id %>
-  </p>
+  <tr class="text-left border-b-2 border-gray-300 text-white">
+    <th class="px-4 py-3">Etablissement</th>
+    <th class="px-4 py-3">Prof Prof</th>
+    <th class="px-4 py-3">Eff Profs</th>
+    <th class="px-4 py-3">Eff Total </th>
+    <th class="px-4 py-3">Eff Profs Part</th>
+  </tr>
+  
+  <tr class="bg-gray-100 border-b border-gray-200">
+    <td class="px-4 py-3">Jill</td>
+    <td class="px-4 py-3">Smith</td>
+    <td class="px-4 py-3">50</td>
+    <td class="px-4 py-3">Male</td>
+    <td class="px-4 py-3">Male</td>
+  </tr> 
+<!-- each row -->
+  <tr class="bg-gray-100 border-b border-gray-200">
+    <td class="px-4 py-3">Jill</td>
+    <td class="px-4 py-3">Smith</td>
+    <td class="px-4 py-3">50</td>
+    <td class="px-4 py-3">Male</td>
+    <td class="px-4 py-3">Male</td>
+  </tr> 
+<!-- each row -->
+  <tr class="bg-gray-100 border-b border-gray-200">
+    <td class="px-4 py-3">Jill</td>
+    <td class="px-4 py-3">Smith</td>
+    <td class="px-4 py-3">50</td>
+    <td class="px-4 py-3">Male</td>
+    <td class="px-4 py-3">Male</td>
+  </tr> 
+<!-- each row -->
 
+</table>
+
+<!-- classic design -->
+
+
+
+<div class="mb-20"></div>
+<!-- fill for tailwind preview bottom overflow -->
+  
   <%= link_to 'Editer', edit_citytown_path(@citytown) %> |
   <%= link_to 'Liste villes', citytowns_path %>
 </div>
