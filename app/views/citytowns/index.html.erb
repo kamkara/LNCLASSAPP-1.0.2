@@ -1,0 +1,37 @@
+<div class="container mt-24">
+<p id="notice"><%= notice %></p>
+
+<h1 class="font-semibold mb-16">Liste des villes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Designation</th>
+      <th>URL</th>
+      <th>Auteur</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @citytowns.each do |citytown| %>
+      <tr>
+        <td><%= citytown.title %></td>
+        <td><%= citytown.slug %></td>
+        <td><%= citytown.user_id %></td>
+        <td><%= link_to 'Affichage', citytown %></td>
+        <td><%= link_to 'Editer', edit_citytown_path(citytown) %></td>
+        <td><%= link_to 'Supprimé', citytown, method: :delete, data: { confirm: 'Vous allez supprimé definitivement?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Ajouter une ville', new_citytown_path, class:"inline-flex justify-center py-2 px-4 border border-transparent 
+  shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600
+ hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2
+  focus:ring-indigo-500" %>
+
+</div>
