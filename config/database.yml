@@ -87,3 +87,4 @@ production:
   database: LNCLASSAPPS_production
   username: LNCLASSAPPS
   password: <%= ENV['LNCLASSAPPS_DATABASE_PASSWORD'] %>
+
