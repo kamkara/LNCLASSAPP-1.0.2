@@ -35,6 +35,7 @@ hooks:
       gem install bundler:2.2.8
       bundle install --without development test
     deploy: |
+      RACK_ENV=production bundle exec rake db:setup
       RACK_ENV=production bundle exec rake db:migrate
 
 web:
