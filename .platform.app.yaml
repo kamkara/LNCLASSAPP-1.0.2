@@ -25,7 +25,8 @@ hooks:
       gem install bundler:2.2.8
       bundle install --without development test
     deploy: |
-      RACK_ENV=production bundle exec rake db:migrate
+      RACK_ENV=production 
+      bundle exec rake db:migrate
 
 # The following block defines a single writable directory, 'web/uploads'
 # The 'source' specifies where the writable mount is. The 'local' source
