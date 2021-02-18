@@ -17,16 +17,16 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: localhost
+  username: lnclass
+  password: "lnclass"
+  port: 5432
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  username: lnclass
-  password: "lnclass"
-  host: localhost
-  port: 5432
   database: LNCLASSAPPS_development
 
   # The specified database role being used to connect to postgres.
@@ -78,13 +78,14 @@ test:
 #   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
 #
 # You can use this database configuration with:
-#
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
-production:
-  <<: *default
-  database: LNCLASSAPPS_production
-  username: LNCLASSAPPS
-  password: <%= ENV['LNCLASSAPPS_DATABASE_PASSWORD'] %>
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  port: 5432
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['DATABASE_URL'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
