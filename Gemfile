@@ -47,6 +47,14 @@ gem 'tailwindcss'
 
 
 
+################  ANALYTICS && BI ################
+#https://www.ginkonote.com/fr/utilisateurs/flo/articles/meilleurs-gems-rails-et-comment-bien-les-utiliser@rails
+#gem 'blazer'
+#gem 'ahoy_email'
+#gem 'ahoy_matey'
+#gem 'pghero'
+
+
 ################  JS ################
 gem 'jquery-rails'
 #gem 'jquery-ui-rails'
@@ -60,6 +68,11 @@ gem "devise"
 #gem 'devise-i18n', '~> 1.9', '>= 1.9.2'
 #gem 'devise-i18n-views', '~> 0.3.7'
 #gem 'devise_invitable', '~> 2.0', '>= 2.0.3'
+
+################  PRODUCTIONS ################
+gem 'rack-timeout', '~> 0.6.0'
+gem 'unicorn-rails', '~> 2.2', '>= 2.2.1'
+
 
 # Use Active Storage variant
  gem 'image_processing', '~> 1.2'
