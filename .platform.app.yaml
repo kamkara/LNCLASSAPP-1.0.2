@@ -25,28 +25,34 @@ hooks:
       gem install bundler:2.2.8
       bundle install --without development test
     deploy: |
-      bundle exec rake db:migrate
+      RACK_ENV=production bundle exec rake db:migrate
+
+
+
+
+web:
+    upstream:
+        socket_family: unix
+    commands:
+        start: "unicorn -l $SOCKET -E production config.ru"
+
+    locations:
+        "/":
+            root: "public"
+            passthru: true
+            expires: 1h
+            allow: true
 
 # The following block defines a single writable directory, 'web/uploads'
 # The 'source' specifies where the writable mount is. The 'local' source
 # indicates that the mount point will point to a local directory on the
 # application container. The 'source_path' specifies the subdirectory
 # from within the source that the mount should point at. 
+
 mounts:
-  'web/uploads':
-    source: local
-    source_path: uploads
-
-
-
-web:
-  upstream: 
-    socket_family: "unix"
-  commands: 
-    start: "\"unicorn -l $SOCKET -E production config.ru\""
-  locations: 
-    '/': 
-      root: "\"public\""
-      passthru: true
-      expires: "1h"
-      allow: true
+    tmp:
+        source: local
+        source_path: tmp
+    logs:
+        source: local
+        source_path: logs

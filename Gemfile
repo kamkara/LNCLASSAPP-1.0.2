@@ -70,9 +70,12 @@ gem "devise"
 #gem 'devise_invitable', '~> 2.0', '>= 2.0.3'
 
 ################  PRODUCTIONS ################
-gem 'rack-timeout', '~> 0.6.0'
-gem 'unicorn-rails', '~> 2.2', '>= 2.2.1'
 
+# Use Unicorn as the app server
+group :production do
+ gem 'rack-timeout', '~> 0.6.0'
+ gem 'unicorn'
+end
 
 # Use Active Storage variant
  gem 'image_processing', '~> 1.2'
