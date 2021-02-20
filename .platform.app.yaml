@@ -56,3 +56,11 @@ mounts:
     logs:
         source: local
         source_path: logs
+
+mounts:
+    tmp:
+        source: local
+        source_path: tmp
+    logs:
+        source: local
+        source_path: logs
