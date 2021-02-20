@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_20_211527) do
+ActiveRecord::Schema.define(version: 2021_02_20_213741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -114,20 +114,6 @@ ActiveRecord::Schema.define(version: 2021_02_20_211527) do
     t.index ["user_id"], name: "index_materials_on_user_id"
   end
 
-  create_table "schools", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "title"
-    t.string "sigle"
-    t.string "type"
-    t.uuid "teacher_id"
-    t.uuid "citytown_id", null: false
-    t.uuid "user_id", null: false
-    t.string "slug"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["citytown_id"], name: "index_schools_on_citytown_id"
-    t.index ["user_id"], name: "index_schools_on_user_id"
-  end
-
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -172,6 +158,4 @@ ActiveRecord::Schema.define(version: 2021_02_20_211527) do
   add_foreign_key "helps", "users"
   add_foreign_key "levels", "users"
   add_foreign_key "materials", "users"
-  add_foreign_key "schools", "citytowns"
-  add_foreign_key "schools", "users"
 end
