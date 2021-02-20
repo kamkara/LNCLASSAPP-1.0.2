@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_14_124233) do
+ActiveRecord::Schema.define(version: 2021_02_20_211527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -114,6 +114,20 @@ ActiveRecord::Schema.define(version: 2021_02_14_124233) do
     t.index ["user_id"], name: "index_materials_on_user_id"
   end
 
+  create_table "schools", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.string "sigle"
+    t.string "type"
+    t.uuid "teacher_id"
+    t.uuid "citytown_id", null: false
+    t.uuid "user_id", null: false
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["citytown_id"], name: "index_schools_on_citytown_id"
+    t.index ["user_id"], name: "index_schools_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -130,7 +144,6 @@ ActiveRecord::Schema.define(version: 2021_02_14_124233) do
     t.string "full_name"
     t.string "first_name"
     t.string "last_name"
-    t.string "city"
     t.string "school_name"
     t.string "matricule"
     t.uuid "level_id"
@@ -144,6 +157,7 @@ ActiveRecord::Schema.define(version: 2021_02_14_124233) do
     t.string "avatar"
     t.string "role", default: "student"
     t.string "slug"
+    t.uuid "city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["phone_contact"], name: "index_users_on_phone_contact", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -158,4 +172,6 @@ ActiveRecord::Schema.define(version: 2021_02_14_124233) do
   add_foreign_key "helps", "users"
   add_foreign_key "levels", "users"
   add_foreign_key "materials", "users"
+  add_foreign_key "schools", "citytowns"
+  add_foreign_key "schools", "users"
 end
