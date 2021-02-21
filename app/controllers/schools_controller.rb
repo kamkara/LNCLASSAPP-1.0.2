@@ -1,7 +1,7 @@
 class SchoolsController < ApplicationController
   before_action :auhtenticate_user!
   before_action :set_school, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_citytowns
   # GET /schools
   # GET /schools.json
   def index
@@ -68,8 +68,8 @@ class SchoolsController < ApplicationController
       @school = School.friendly.find(params[:id])
     end
 
-    def set_citytown 
-      @citytown = current_user.citytowns.friendly.find(params[ :citytown_id])
+    def set_citytowns
+      @citytown = current_user.citytowns.friendly.find(params[:citytown_id])
     end
 
     # Only allow a list of trusted parameters through.
