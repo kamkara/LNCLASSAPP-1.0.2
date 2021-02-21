@@ -2,6 +2,7 @@ class LoginController < ApplicationController
   before_action :find_materials
   before_action :find_levels
   before_action :find_citytowns
+  before_action :find_schools
   
   def student
   end
@@ -25,6 +26,10 @@ class LoginController < ApplicationController
 
     def find_citytowns
       @citytowns = Citytown.all
+    end
+
+    def find_schools
+      @schools = School.all
     end
 end
 
