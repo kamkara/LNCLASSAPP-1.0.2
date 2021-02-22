@@ -15,13 +15,9 @@ type: 'ruby:2.7'
 # application container. The 'source_path' specifies the subdirectory
 # from within the source that the mount should point at. 
 mounts:
-    tmp:
-      source: local
-      source_path: tmp
-    logs:
-      source: local
-      source_path: logs
-
+  'web/uploads':
+    source: local
+    source_path: uploads
 
 # The relationships of the application with services or other applications.
 #
@@ -32,13 +28,8 @@ relationships:
     postgresdatabase: 'dbpostgres:postgresql'
 
 
-# The size of the persistent disk of the application (in MB).
-disk: 1024
-
-
 hooks:
     build: |
-      gem install bundler:2.2.8
       bundle install --without development test
     deploy: |
       RACK_ENV=production bundle exec rake db:migrate
@@ -47,11 +38,13 @@ web:
   upstream: 
     socket_family: "unix"
   commands: 
-    start: "unicorn -l $SOCKET -E production config.ru"
+    start: "\"unicorn -l $SOCKET -E production config.ru\""
   locations: 
     '/': 
-      root: "public"
+      root: "\"public\""
       passthru: true
-      expires: 1h
+      expires: "1h"
       allow: true
 
+# The size of the persistent disk of the application (in MB).
+disk: 1024
