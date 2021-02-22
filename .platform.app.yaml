@@ -15,12 +15,12 @@ type: 'ruby:2.7'
 # application container. The 'source_path' specifies the subdirectory
 # from within the source that the mount should point at. 
 mounts:
-  tmp:
-    source: local
-    source_path: tmp
-  logs: 
-    source: local
-    source_path: tmp
+    'private':
+        source: local
+        source_path: private
+    'web/uploads':
+        source: local
+        source_path: uploads
 
 
 # The relationships of the application with services or other applications.
