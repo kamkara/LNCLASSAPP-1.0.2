@@ -1,7 +1,7 @@
 class SchoolsController < ApplicationController
   before_action :auhtenticate_user!
   before_action :set_school, only: [:show, :edit, :update, :destroy]
-  before_action :set_citytowns
+  before_action :set_citytown
   # GET /schools
   # GET /schools.json
   def index
@@ -26,7 +26,7 @@ class SchoolsController < ApplicationController
   # POST /schools.json
   def create
     @school = @citytown.schools.build(school_params)
-
+    
     respond_to do |format|
       if @school.save
         format.html { redirect_to @school, notice: 'School was successfully created.' }
@@ -65,7 +65,7 @@ class SchoolsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_school
-      @school = School.friendly.find(params[:id])
+      @school = @citytown.schools.friendly.find(params[:id])
     end
 
     def set_citytowns
@@ -74,6 +74,6 @@ class SchoolsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def school_params
-      params.require(:school).permit(:title, :sigle, :type, :city_manager_id, :citytown_id, :user_id, :slug)
+      params.require(:school).permit(:title, :sigle, :type, :city_manager_id, :size, :citytown_id, :user_id, :slug)
     end
 end

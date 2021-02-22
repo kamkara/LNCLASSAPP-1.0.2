@@ -3,7 +3,8 @@
 
   <p class="mb-8">
     <strong>Ville:</strong>
-    <%= @citytown.title %>   <a href="#" class="btn btn-primary">Nouvelle Ecole</a>
+    <%= @citytown.title %>  
+    <%= link_to 'Nouvelle Ecole', new_citytown_school_path(@citytown), class:"btn btn-primary mx-auto" %>
   </p>
 
 
