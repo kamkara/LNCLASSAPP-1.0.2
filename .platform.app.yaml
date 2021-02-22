@@ -14,11 +14,18 @@ type: 'ruby:2.7'
 # indicates that the mount point will point to a local directory on the
 # application container. The 'source_path' specifies the subdirectory
 # from within the source that the mount should point at. 
-mounts:
-  'web/uploads':
-    source: local
-    source_path: uploads
+#mounts:
+#  'web/uploads':
+#    source: local
+#    source_path: uploads
 
+mounts:
+    'tmp':
+      source: local
+      source_path: tmp
+    'log':
+      source: local
+      source_path: log
 # The relationships of the application with services or other applications.
 #
 # The left-hand side is the name of the relationship as it will be exposed
