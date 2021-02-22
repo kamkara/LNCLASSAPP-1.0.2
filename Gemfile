@@ -72,10 +72,9 @@ gem "devise"
 ################  PRODUCTIONS ################
 
 # Use Unicorn as the app server
-group :production do
  gem 'rack-timeout', '~> 0.6.0'
- gem 'unicorn'
-end
+ gem 'unicorn', '~> 5.8'
+
 
 # Use Active Storage variant
  gem 'image_processing', '~> 1.2'
