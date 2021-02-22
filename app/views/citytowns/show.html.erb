@@ -1,20 +1,42 @@
-<div class="container mt-24">
+<div class="container mt-24 mx-6">
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Designation:</strong>
-    <%= @citytown.title %>
+  <p class="mb-8">
+    <strong>Ville:</strong>
+    <%= @citytown.title %>  
+    <%= link_to 'Nouvelle Ecole', new_citytown_school_path(@citytown), class:"btn btn-primary mx-auto" %>
   </p>
 
-  <p>
-    <strong>Url:</strong>
-    <%= @citytown.slug %>
-  </p>
 
-  <p>
-    <strong>Auteur:</strong>
-    <%= @citytown.user_id %>
-  </p>
+<div class="row">
+  <div class="col-12 col-md-4 col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-4 col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-4 col-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
 
   <%= link_to 'Editer', edit_citytown_path(@citytown) %> |
   <%= link_to 'Liste villes', citytowns_path %>

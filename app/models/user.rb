@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :levels
   has_many :citytowns
   has_many :helps
+  has_many :schools
   #has_many :exercices
 
   ################  VALIDATIONS  ###########################
@@ -33,7 +34,7 @@ end
   ######### PRESENTES && FORMAT  ######
     validates :phone_contact,
               :city, :school_name,
-              :email, :city, presence: true
+              :email,  presence: true
 
     validates :last_name, :first_name,
               presence: true,
@@ -66,7 +67,6 @@ end
 
 def team_sign_up
   if self.role == "team"
-    self.city = "QH"
     self.school_name = "QH Aplatform"
   end
 end
