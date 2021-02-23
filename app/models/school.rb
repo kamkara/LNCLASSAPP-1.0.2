@@ -4,7 +4,7 @@ class School < ApplicationRecord
   
   ################## SCHOOL TYPE  ###############
   SCHOOL_TYPE= ['Privé', 'Public', 'Mixte']
-  SCHOOL_TYPE= ['S', 'M', 'L'] # S: Small {-500};  M: Medium { +500-1.5k}; L: Large {+1.5K}
+  SCHOOL_SIZE= ['S', 'M', 'L'] # S: Small {-500};  M: Medium { +500-1.5k}; L: Large {+1.5K}
 
 
   ################## VALIDATES  ###############
