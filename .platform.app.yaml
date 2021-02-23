@@ -20,8 +20,20 @@ mounts:
       source: local
       source_path: log
     tmp:
-        source: local
-        source_path: tmp
+      source: local
+      source_path: tmp
+
+
+# The following block defines a single writable directory, 'web/uploads'
+# The 'source' specifies where the writable mount is. The 'local' source
+# indicates that the mount point will point to a local directory on the
+# application container. The 'source_path' specifies the subdirectory
+# from within the source that the mount should point at. 
+mounts:
+  'web/uploads':
+    source: local
+    source_path: uploads
+
 
 # The relationships of the application with services or other applications.
 #
