@@ -49,11 +49,11 @@ gem 'tailwindcss'
 
 ################  ANALYTICS && BI ################
 #https://www.ginkonote.com/fr/utilisateurs/flo/articles/meilleurs-gems-rails-et-comment-bien-les-utiliser@rails
-#gem 'blazer'
 #gem 'ahoy_email'
-#gem 'ahoy_matey'
-#gem 'pghero'
-
+#gem 'ahoy_matey' #tracking in app action and event
+#gem 'blazer' # created smart dashboard in app
+#gem 'pghero' # queries
+#gem 'prophet-rb' #forecast chart
 
 ################  JS ################
 gem 'jquery-rails'
