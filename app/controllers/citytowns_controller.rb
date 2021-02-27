@@ -57,7 +57,7 @@ class CitytownsController < ApplicationController
   def destroy
     @citytown.destroy
     respond_to do |format|
-      format.html { redirect_to citytowns_url, notice: 'Citytown was successfully destroyed.' }
+      format.html { redirect_to @citytown, notice: 'Citytown was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

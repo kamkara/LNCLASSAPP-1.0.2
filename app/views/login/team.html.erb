@@ -45,12 +45,14 @@
                 hide_label: true, class:"form-control md:input-lg lg:input-lg my-1 ",
                 placeholder:"Confirmez votre mot de passe :", 
                 help:"retaper le mot de passe" %>
+                <%= f.select :city, User::CITY, label: "Ville: ", label_class:"font-semibold",
+                    wrapper: { class: "md:w-1/3 border border-gray-200 focus:outline-none 
+                    focus:border-gray-500"} %>
 
                 <%= f.hidden_field :role, value:"team" %>
                 <%= f.hidden_field :school_name, value:"QH Aplatform.co" %>
-                <%= f.hidden_field :city, value:"QH" %>
                 
-                <div class="actions">
+                <div class="actions mt-4">
                     <%= f.submit "Créer mon compte", class:"btn btn-lg btn-primary btn-block signup-btn" %>
                 </div>
             <% end %>

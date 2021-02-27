@@ -14,10 +14,16 @@ type: 'ruby:2.7'
 # indicates that the mount point will point to a local directory on the
 # application container. The 'source_path' specifies the subdirectory
 # from within the source that the mount should point at. 
+
 mounts:
-  'web/uploads':
-    source: local
-    source_path: uploads
+    log:
+      source: local
+      source_path: log
+    tmp:
+      source: local
+      source_path: tmp
+
+
 
 # The relationships of the application with services or other applications.
 #
@@ -27,8 +33,10 @@ mounts:
 relationships:
     postgresdatabase: 'dbpostgres:postgresql'
 
+
 # The size of the persistent disk of the application (in MB).
 disk: 1024
+
 
 hooks:
     build: |
@@ -41,10 +49,11 @@ web:
   upstream: 
     socket_family: "unix"
   commands: 
-    start: "\"unicorn -l $SOCKET -E production config.ru\""
+    start: "unicorn -l $SOCKET -E production config.ru"
   locations: 
     '/': 
-      root: "\"public\""
+      root: "public"
       passthru: true
-      expires: "1h"
+      expires: 1h
       allow: true
+

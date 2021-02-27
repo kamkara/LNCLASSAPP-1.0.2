@@ -16,7 +16,7 @@ gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+#gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -49,11 +49,11 @@ gem 'tailwindcss'
 
 ################  ANALYTICS && BI ################
 #https://www.ginkonote.com/fr/utilisateurs/flo/articles/meilleurs-gems-rails-et-comment-bien-les-utiliser@rails
-#gem 'blazer'
 #gem 'ahoy_email'
-#gem 'ahoy_matey'
-#gem 'pghero'
-
+#gem 'ahoy_matey' #tracking in app action and event
+#gem 'blazer' # created smart dashboard in app
+#gem 'pghero' # queries
+#gem 'prophet-rb' #forecast chart
 
 ################  JS ################
 gem 'jquery-rails'
@@ -70,9 +70,12 @@ gem "devise"
 #gem 'devise_invitable', '~> 2.0', '>= 2.0.3'
 
 ################  PRODUCTIONS ################
-gem 'rack-timeout', '~> 0.6.0'
-gem 'unicorn-rails', '~> 2.2', '>= 2.2.1'
 
+group :production do
+# Use Unicorn as the app server
+ gem 'rack-timeout', '~> 0.6.0'
+ gem 'unicorn', '~> 5.8'
+end
 
 # Use Active Storage variant
  gem 'image_processing', '~> 1.2'
