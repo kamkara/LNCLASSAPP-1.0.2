@@ -45,8 +45,9 @@ hooks:
       gem install bundler:2.2.8
       bundle install --without development test
     deploy: |
-      RACK_ENV=production bundle exec rake db:migrate
-      
+      bundle exec rake db:migrate
+      rake assets:precompile
+      bin/webpack
       nohup rails server &
 
 web:
