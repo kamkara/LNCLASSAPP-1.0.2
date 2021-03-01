@@ -46,7 +46,7 @@ hooks:
       bundle install --without development test
     deploy: |
       RACK_ENV=production bundle exec rake db:migrate
-      
+      nohup rails server &
 
 web:
   upstream: 
