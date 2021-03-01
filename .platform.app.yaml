@@ -46,6 +46,8 @@ hooks:
       bundle install --without development test
     deploy: |
       RACK_ENV=production bundle exec rake db:migrate
+      RACK_ENV=production bundle exec rails s
+      
 
 web:
   upstream: 
