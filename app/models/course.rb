@@ -2,6 +2,7 @@ class Course < ApplicationRecord
   belongs_to :user
   belongs_to :level
   belongs_to :material
+  has_many :exercices
   has_rich_text :content
 
   #Avoid N+1 queries

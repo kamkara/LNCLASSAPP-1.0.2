@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     
   end
   
-  resources :courses
+  resources :courses do
+    resources :exercices
+  end 
+  
   resources :materials
   resources :levels
   resources :helps

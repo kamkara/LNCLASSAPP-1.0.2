@@ -1,0 +1,89 @@
+<%= form_with(model: [course, exercice], local: true) do |f| %>
+  <% if exercice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exercice.errors.count, "error") %> prohibited this exercice from being saved:</h2>
+
+      <ul>
+        <% exercice.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="container">
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= f.label :content %>
+        <%= f.text_area :content %>
+      </div>
+    </div>
+
+  <div class="field">
+    <%= f.label :annonce1 %>
+    <%= f.text_area :annonce1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :champ1 %>
+    <%= f.text_field :champ1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :champ2 %>
+    <%= f.text_field :champ2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :champ3 %>
+    <%= f.text_field :champ3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :annonce2 %>
+    <%= f.text_field :annonce2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :champ4 %>
+    <%= f.text_field :champ4 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :champ5 %>
+    <%= f.text_field :champ5 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :champ6 %>
+    <%= f.text_field :champ6 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :annonce3 %>
+    <%= f.text_field :annonce3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :champ7 %>
+    <%= f.text_field :champ7 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :champ8 %>
+    <%= f.text_field :champ8 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :champ9 %>
+    <%= f.text_field :champ9 %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit 'Créer un Exercice', class:" btn btn-primary"  %>
+  </div>
+<% end %>

@@ -10,6 +10,7 @@ class School < ApplicationRecord
   ################## VALIDATES  ###############
   validates :title, :slug, presence: true
   validates :title, length: { maximum:100 }
+  
   #SLUG
   extend FriendlyId
     friendly_id :sigle, use: :slugged
