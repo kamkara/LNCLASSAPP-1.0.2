@@ -46,9 +46,11 @@ hooks:
       bundle install --without development test
     deploy: |
       RACK_ENV=production bundle exec rake db:migrate
-      RAILS_ENV=production rake assets:precompile
-      RAILS_ENV=production RACK_ENV=production NODE_ENV=production bin/webpack
-      nohup rails server &
+      RAILS_ENV=production bundle exec rails assets:precompile
+      RAILS_ENV=production bundle exec rails webpacker:compile
+
+    post_deploy: |
+      rails server 
 
 web:
   upstream: 
