@@ -25,12 +25,9 @@ class ExercicesController < ApplicationController
   # POST /exercices
   def create
     @exercice = @course.exercices.build(exercice_params)
-
-    if @exercice.save 
-      redirect_to course_exercice_path(@course, @exercice), notice: 'Exercice was successfully created.'
-    else
-      render :new
-    end
+    @exercice.user_id = @course.author
+    redirect_to course_path(@course), notice: 'Exercice was successfully created.'
+    
   end
 
   # PATCH/PUT /exercices/1
@@ -54,7 +51,7 @@ class ExercicesController < ApplicationController
       @exercice = Exercice.friendly.find(params[:id])
     end
     def set_course
-      @course = courses.friendly.find(params[:course_id])
+      @course = Course.friendly.find(params[:course_id])
     end
 
     # Only allow a trusted parameter "white list" through.
