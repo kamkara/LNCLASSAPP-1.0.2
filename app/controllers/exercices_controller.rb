@@ -54,7 +54,7 @@ class ExercicesController < ApplicationController
       @exercice = Exercice.friendly.find(params[:id])
     end
     def set_course
-      @course = current_user.courses.friendly.find(params[:course_id])
+      @course = courses.friendly.find(params[:course_id])
     end
 
     # Only allow a trusted parameter "white list" through.
