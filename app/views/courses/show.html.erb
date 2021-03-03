@@ -36,7 +36,12 @@
       <div class="card">
         <span class="m-1">
             <p>Créé maintenant une serié d'exercices.</p>
+            <%= render @course.exercices %>
+            
         </span>
+
+        <hr>
+         <%= link_to "Some Page", new_course_exercice_path(@course) %>
       </div>
     </div>
 

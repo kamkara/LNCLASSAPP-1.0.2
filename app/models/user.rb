@@ -12,7 +12,8 @@ class User < ApplicationRecord
   has_many :citytowns
   has_many :helps
   has_many :schools
-  #has_many :exercices
+  has_many :exercices
+ 
 
   ################  VALIDATIONS  ###########################
 def roles

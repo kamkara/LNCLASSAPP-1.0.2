@@ -1,0 +1,39 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  content: MyText
+  annonce1: MyText
+  champ1: MyString
+  champ2: MyString
+  champ3: MyString
+  annonce2: MyString
+  champ4: MyString
+  champ5: MyString
+  champ6: MyString
+  annonce3: MyString
+  champ7: MyString
+  champ8: MyString
+  champ9: MyString
+  slug: MyString
+  user: one
+  course: one
+
+two:
+  title: MyString
+  content: MyText
+  annonce1: MyText
+  champ1: MyString
+  champ2: MyString
+  champ3: MyString
+  annonce2: MyString
+  champ4: MyString
+  champ5: MyString
+  champ6: MyString
+  annonce3: MyString
+  champ7: MyString
+  champ8: MyString
+  champ9: MyString
+  slug: MyString
+  user: two
+  course: two
