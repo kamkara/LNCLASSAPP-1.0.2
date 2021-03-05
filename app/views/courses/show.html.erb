@@ -33,16 +33,9 @@
     <!-- Exercices-->
     <div class="col-12 col-md-6 col-lg-6">
     <h1 class="my-2 font-semibold">Exercices</h1>
-      <div class="card">
-        <span class="m-1">
-            <p>Créé maintenant une serié d'exercices.</p>
-            <%= render @course.exercices %>
-            
-        </span>
-
-        <hr>
-         <%= link_to "Some Page", new_course_exercice_path(@course) %>
-      </div>
+     
+     <!-- exercice card -->
+     <%= render "exercice_card" %>
     </div>
 
   </div>
