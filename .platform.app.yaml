@@ -32,7 +32,6 @@ variables:
         EXECJS_RUNTIME: 'Node'
 hooks:
     build: |
-      gem install bundler:2.2.8
       bundle install --without development test
       bundle exec rails assets:precompile
       bundle exec rails webpacker:compile
