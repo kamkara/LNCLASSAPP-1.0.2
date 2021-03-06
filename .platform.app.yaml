@@ -1,0 +1,55 @@
+
+
+# The name of this app. Must be unique within a project.
+name: app
+
+type: 'ruby:2.7'
+
+
+mounts:
+    log:
+      source: local
+      source_path: log
+    tmp:
+      source: local
+      source_path: tmp
+
+
+relationships:
+    postgresdatabase: 'dbpostgres:postgresql'
+
+
+# The size of the persistent disk of the application (in MB).
+disk: 1024
+
+# Set environment variables to adjust how Rails will run.
+variables:
+    env:
+        RAILS_ENV: 'production'
+        RAILS_LOG_TO_STDOUT: true
+        BUNDLE_ERROR_ON_STDERR: 1
+        RAILS_TMP: /tmp
+        EXECJS_RUNTIME: 'Node'
+hooks:
+    build: |
+      gem install bundler:2.2.8
+      bundle install --without development test
+      bundle exec rails assets:precompile
+      bundle exec rails webpacker:compile
+    deploy: |
+      bundle exec rake db:migrate 
+    post_deploy: |
+      bundle exec rails server
+
+web:
+  upstream: 
+    socket_family: "unix"
+  commands: 
+    start: "unicorn -l $SOCKET -E production config.ru"
+  locations: 
+    '/': 
+      root: "public"
+      passthru: true
+      expires: 1h
+      allow: true
+
