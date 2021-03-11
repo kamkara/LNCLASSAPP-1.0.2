@@ -37,11 +37,8 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.save
         format.html { redirect_to @course, notice: 'La léçon est bien créée et publiée.' }
-        format.json { render :show, status: :created, location: @course }
-        
       else
         format.html { render :new }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
         render layout: "dashboard"
       end
     end
