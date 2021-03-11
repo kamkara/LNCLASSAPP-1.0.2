@@ -32,13 +32,14 @@ variables:
         EXECJS_RUNTIME: 'Node'
 hooks:
     build: |
+      gem install bundler:2.2.8
       bundle install --without development test
-      bundle exec rails assets:precompile
-      bundle exec rails webpacker:compile
+      RAILS_ENV=production bundle exec rake assets:precompile
+      RAILS_ENV=production bundle exec rails webpacker:compile
     deploy: |
-      bundle exec rake db:migrate 
+      RAILS_ENV=production bundle exec rake db:migrate 
     post_deploy: |
-      bundle exec rails server
+      rails server
 
 web:
   upstream: 
