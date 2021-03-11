@@ -101,7 +101,7 @@ GEM
     e2mmap (0.1.0)
     erubi (1.10.0)
     execjs (2.7.0)
-    ffi (1.14.2)
+    ffi (1.15.0)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     globalid (0.4.2)
@@ -227,7 +227,11 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+<<<<<<< HEAD
     semantic_range (2.3.1)
+=======
+    semantic_range (3.0.0)
+>>>>>>> DEVELOP
     solargraph (0.40.4)
       backport (~> 1.1)
       benchmark
@@ -253,8 +257,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    tailwindcss (1.0.3)
-      railties (>= 4.1.0, <= 6.1)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -317,7 +319,6 @@ DEPENDENCIES
   solargraph
   spring
   spring-watcher-listen (~> 2.0.0)
-  tailwindcss
   turbolinks (~> 5)
   tzinfo-data
   unicorn (~> 5.8)

@@ -12,6 +12,10 @@ gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+<<<<<<< HEAD
+=======
+#gem 'webpacker', '~> 4.0'
+>>>>>>> DEVELOP
 gem 'webpacker', '~> 5.2', '>= 5.2.1'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -26,7 +30,7 @@ gem 'turbolinks', '~> 5'
 ####################    STYLES ######################
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'bootstrap_form'
-gem 'tailwindcss'
+#gem 'tailwindcss'
 
 ################  UX/UI ################
 #gem 'time_ago_in_words', '~> 0.1.1'
