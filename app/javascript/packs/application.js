@@ -11,6 +11,7 @@ require("channels")
 // RICH_TEXT
 require("trix")
 require("@rails/actiontext")
+
 //= require jquery
 
 // Uncomment to copy all static images under ../images to the output folder and reference
